@@ -13,6 +13,7 @@ def processJob (name, data) {
     println "branch: ${data.branch}"
     
     job("${name}-build") {
+        println "${JOB_NAME}"
         steps {
             dsl {
                 removeAction('DELETE')
