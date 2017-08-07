@@ -15,6 +15,7 @@ def processJob (name, data) {
         disabled()        
         steps {
             dsl {
+                external("${name}.groovy")
                 removeAction('DELETE')
             }
         }
