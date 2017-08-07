@@ -17,7 +17,7 @@ def processJob (name, data) {
         def j = Jenkins.instance.getItemByFullName("${name}")
         if (j != null) {
             j.builds.each { it2 -> it2.delete() }
-            j.checkPermission(hudson.model.AbstractItem.DELETE);
+            //j.checkPermission(hudson.model.AbstractItem.DELETE);
             j.delete()
         }
 }
