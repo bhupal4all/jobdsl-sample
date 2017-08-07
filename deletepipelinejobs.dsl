@@ -4,11 +4,7 @@ slurper.classLoader = this.class.classLoader
 def config = slurper.parse(readFileFromWorkspace('microservices.dsl'))
 
 // create job for every microservice
-config.microservices.each { name, data ->
-  deleteBuildJob(name,data)
-}
-
-def deleteBuildJob(name,data) {
+config.microservices.each { name ->
   job(${name}-build) {
     disabled(true);
   }  
