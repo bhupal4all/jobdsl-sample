@@ -19,7 +19,7 @@ def processJob (name, data) {
 //        j.builds.each { it.delete() }
 //        j.delete()
         println Jenkins.instance.getItemByFullName("${name}")
-        Jenkins.instance.getItemByFullName("${name}").builds.each { it -> it.delete() }
+        Jenkins.instance.getItemByFullName("${name}").builds.each { it2 -> it2.delete() }
     }
 }
 
