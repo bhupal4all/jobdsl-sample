@@ -13,13 +13,11 @@ config.microservices.each { name, data ->
 import jenkins.model.*;
 
 def processJob (name, data) {
-    job("${name}") {
         def j = Jenkins.instance.getItemByFullName("${name}")
         if (j != null) {
-            disabled()        
             j.builds.each { it2 -> it2.delete() }
+            j.checkPermission(AbstractItem.DELETE);
             j.delete()
         }
-    }
 }
 
