@@ -14,5 +14,6 @@ def processJob (name, data) {
     
     job("${name}-build") {
         description("modified")
+        disabled()
     }
 }
