@@ -4,10 +4,13 @@ slurper.classLoader = this.class.classLoader
 def config = slurper.parse(readFileFromWorkspace('microservices.dsl'))
 
 // create job for every microservice
-config.microservices.each { name -> 
-    processJob(name)
+config.microservices.each { name, data -> 
+    processJob(name, data)
 }
 
-def processJob (name) {
-    println "processing ${name.branch}"
+def processJob (name, data) {
+    println "processing ${name}"
+    println "name = name"
+    println "data.branch"
+    println "${data.branch}"
 }
