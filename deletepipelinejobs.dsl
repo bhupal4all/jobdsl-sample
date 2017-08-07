@@ -19,7 +19,7 @@ def processJob (name, data) {
 //        j.builds.each { it.delete() }
 //        j.delete()
         
-        Jenkins.instance.getItemByFullName('${name}').builds.findAll { it.number > 0 && it.number < 10 }.each { it.delete() }
+        Jenkins.instance.getItemByFullName("${name}").builds.findAll { it.number > 0 && it.number < 10 }.each { it.delete() }
     }
 }
 
