@@ -27,7 +27,7 @@ def createBuildJob(name,data) {
           url(data.url)
         }
         branch(data.branch)
-        createTag(false)
+        //createTag(false)
       }
     }
   
