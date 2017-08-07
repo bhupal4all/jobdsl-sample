@@ -11,7 +11,7 @@ config.microservices.each { name, data ->
 def createBuildJob(name,data) {
   job($name) {
     steps {
-      shell('echo "I live!")
+      sh('echo "I live!");
     }
   }  
 }
