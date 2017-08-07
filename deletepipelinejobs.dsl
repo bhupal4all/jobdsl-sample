@@ -9,5 +9,5 @@ config.microservices.each { name ->
 }
 
 def processJob (name) {
-    println "processing ${name}"
+    println "processing ${name.branch}"
 }
