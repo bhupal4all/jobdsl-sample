@@ -10,15 +10,13 @@ config.microservices.each { name, data ->
     processJob("${name}-deploy", data)
 }
 
+import jenkins.model.*;
+
 def processJob (name, data) {
     job("${name}") {
         disabled()        
-        steps {
-            dsl {
-                external("${name}.groovy")
-                removeAction('DELETE')
-            }
-        }
+        def j = jenkins.model.Jenkins.instance.getItem(name)
+        j.delete()
     }
 }
 
