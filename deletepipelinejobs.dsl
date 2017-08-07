@@ -6,6 +6,8 @@ def config = slurper.parse(readFileFromWorkspace('microservices.dsl'))
 // create job for every microservice
 config.microservices.each { name, data -> 
     processJob("${name}-build", data)
+    processJob("${name}-itest", data)
+    processJob("${name}-deploy", data)
 }
 
 def processJob (name, data) {
@@ -18,3 +20,4 @@ def processJob (name, data) {
         }
     }
 }
+
