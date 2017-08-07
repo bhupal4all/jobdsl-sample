@@ -8,7 +8,7 @@ config.microservices.each { name, data ->
   deleteBuildJob(name,data)
 }
 
-def createBuildJob(name,data) {
+def deleteBuildJob(name,data) {
   job($name) {
     disabled(true);
   }  
