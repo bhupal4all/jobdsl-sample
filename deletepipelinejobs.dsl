@@ -15,5 +15,8 @@ def processJob (name, data) {
     job("${name}-build") {
         description("modified")
         disabled()
+          steps {
+            shell('echo "I live!")
+          }
     }
 }
