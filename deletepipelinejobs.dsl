@@ -5,15 +5,12 @@ def config = slurper.parse(readFileFromWorkspace('microservices.dsl'))
 
 // create job for every microservice
 config.microservices.each { name, data -> 
-    processJob(name, data)
+    processJob("${name}-build", data)
 }
 
 def processJob (name, data) {
-    println "processing ${name}"
-    println "branch: ${data.branch}"
-    
-    job("${name}-build") {
-        println "${JOB_NAME}"
+    job("${name}") {
+        disabled()        
         steps {
             dsl {
                 removeAction('DELETE')
