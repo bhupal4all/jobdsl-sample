@@ -11,6 +11,7 @@ config.microservices.each { name, data ->
 }
 
 import jenkins.model.*;
+import hudson.*;
 
 def processJob (name, data) {
         def j = Jenkins.instance.getItemByFullName("${name}")
