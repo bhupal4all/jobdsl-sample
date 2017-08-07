@@ -9,7 +9,5 @@ config.microservices.each { name ->
 }
 
 def processJob (name) {
-    job("'${name}'-build") {
-      description('${name} Build job')
-    }  
+    println "processing ${name}"
 }
