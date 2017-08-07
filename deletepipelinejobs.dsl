@@ -10,8 +10,6 @@ config.microservices.each { name, data ->
 
 def createBuildJob(name,data) {
   job($name) {
-    steps {
-      sh('echo "I live!");
-    }
+    disabled(true);
   }  
 }
