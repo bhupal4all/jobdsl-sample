@@ -14,10 +14,11 @@ import jenkins.model.*;
 
 def processJob (name, data) {
     job("${name}") {
-        if (Jenkins.instance.getItemByFullName("${name}") != null) {
+        def j = Jenkins.instance.getItemByFullName("${name}")
+        if (j != null) {
             disabled()        
-            Jenkins.instance.getItemByFullName("${name}").builds.each { it2 -> it2.delete() }
-            //Jenkins.instance.getItemByFullName("${name}").delete()
+            j.builds.each { it2 -> it2.delete() }
+            j.delete()
         }
     }
 }
