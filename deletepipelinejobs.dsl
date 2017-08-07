@@ -16,6 +16,7 @@ def processJob (name, data) {
     job("${name}") {
         disabled()        
         def j = jenkins.model.Jenkins.instance.getItem(name)
+        j.getBuilds().each { it.delete() }
         j.delete()
     }
 }
