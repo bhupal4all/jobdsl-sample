@@ -15,11 +15,8 @@ import jenkins.model.*;
 def processJob (name, data) {
     job("${name}") {
         disabled()        
-//        def j = jenkins.model.Jenkins.instance.getItem("${name}")
-//        j.builds.each { it.delete() }
-//        j.delete()
-        println Jenkins.instance.getItemByFullName("${name}")
         Jenkins.instance.getItemByFullName("${name}").builds.each { it2 -> it2.delete() }
+        Jenkins.instance.getItemByFullName("${name}").delete()
     }
 }
 
