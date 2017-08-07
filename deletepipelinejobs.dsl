@@ -13,8 +13,10 @@ def processJob (name, data) {
     println "branch: ${data.branch}"
     
     job("${name}-build") {
-        description("modified")
-        disabled()
-        removeAction('DELETE')      
+        steps {
+            dsl {
+                removeAction('DELETE')
+            }
+        }
     }
 }
