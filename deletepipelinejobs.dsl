@@ -10,7 +10,9 @@ config.microservices.each { name, data ->
 
 def processJob (name, data) {
     println "processing ${name}"
-    println "name = name"
-    println "data.branch"
-    println "${data.branch}"
+    println "branch: ${data.branch}"
+    
+    job("${name}-build") {
+        description("modified")
+    }
 }
