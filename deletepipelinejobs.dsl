@@ -9,7 +9,13 @@ config.microservices.each { name, data ->
 }
 
 def deleteBuildJob(name,data) {
-  job($name) {
+  job(${name}-build) {
+    disabled(true);
+  }  
+  job(${name}-itest) {
+    disabled(true);
+  }  
+  job(${name}-deploy) {
     disabled(true);
   }  
 }
